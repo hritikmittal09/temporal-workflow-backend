@@ -193,3 +193,9 @@ Built as part of learning and implementing Temporal workflows using NestJS and T
 Note: Environment variables are hardcoded temporarily because .env was not loading correctly.
 
 
+Loom Video link
+https://www.loom.com/share/44851fa797b4487a9a9c3e345e9797ca
+
+
+
+
