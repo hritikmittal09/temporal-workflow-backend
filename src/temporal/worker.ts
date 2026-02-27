@@ -3,20 +3,17 @@ import * as activities from './activities';
 
 async function run() {
   const connection = await NativeConnection.connect({
-    address: process.env.TEMPORAL_ADDRESS as string,
-    tls: {
-      clientCertPair: {
-        crt: Buffer.from(process.env.TEMPORAL_CERT as string),
-        key: Buffer.from(process.env.TEMPORAL_KEY as string),
-      },
+    address: process.env.address as string,
+    tls:true,
+    apiKey : process.env.apikey
     },
-  });
+  );
 
   const worker = await Worker.create({
     workflowsPath: require.resolve('./workflows'),
     activities,
-    taskQueue: 'default',
-    namespace: process.env.TEMPORAL_NAMESPACE as string,
+    taskQueue: 'api-task-queue',
+    namespace: process.env.name,
     connection,
   });
 
