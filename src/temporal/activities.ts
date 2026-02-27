@@ -1,9 +1,13 @@
 export async function fetchPublicApi(): Promise<any> {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
-  const data = await res.json();
+  
+  const url = 'https://api.freeapi.app/api/v1/public/randomjokes/joke/random';
 
-  console.log("API Response:", data);
+const res = await fetch(url);
+const result = await res.json();
 
-  return data;
+console.log("API Response:", result);
+
+
+return result.data.content;
 }
 // Add more activities as needed
